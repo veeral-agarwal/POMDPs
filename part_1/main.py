@@ -1,8 +1,7 @@
-# Amin
 import numpy as np
 
-roll_num_last4 = 1071
-roll_num_last2 = 71
+roll_num_last4 = 4009
+roll_num_last2 = 9
 
 
 x = 1.00 - ((roll_num_last4%30) + 1)/100.0
@@ -41,46 +40,63 @@ for action in range(0,3):
         for i in range(0,6):
             if i==0:
                 belief_upd[i] = (1.00-p_red)*((1-x)*belief[0] + (1-x)*(belief[1]))
+                print(belief_upd[i])
             if i==1:
                 belief_upd[i] = (p_green)*(x*belief[0] + (1-x)*belief[2])
+                print(belief_upd[i])
             if i==2:
                 belief_upd[i] = (1.00-p_red)*(x*belief[1] + (1-x)*belief[3])
+                print(belief_upd[i])
             if i==3:
                 belief_upd[i] = (p_green)*(x*belief[2] + (1-x)*belief[4])
+                print(belief_upd[i])
             if i==4:
                 belief_upd[i] = (p_green)*(x*belief[3] + (1-x)*belief[5])
+                print(belief_upd[i])
             if i==5:
                 belief_upd[i] = (1.00- p_red)*(x*belief[4] + x*belief[5])
-
+                print(belief_upd[i])
     if action == 1:
         for i in range(0,6):
             if i==0:
                 belief_upd[i] = (p_red)*(x*belief[0] + x*belief[1])
+                print(belief_upd[i])
             if i==1:
                 belief_upd[i] = (1.00-p_green)*((1-x)*belief[0] + (x)*belief[2])
+                print(belief_upd[i])
             if i==2:
                 belief_upd[i] = (p_red)*((1-x)*belief[1] + (x)*belief[3])
+                print(belief_upd[i])
             if i==3:
                 belief_upd[i] = (1.00-p_green)*((1-x)*belief[2] + (x)*belief[4])
+                print(belief_upd[i])
             if i==4:
                 belief_upd[i] = (1.00-p_green)*((1-x)*belief[3] + (x)*belief[5])
+                print(belief_upd[i])
             if i==5:
                 belief_upd[i] = (p_red)*((1-x)*belief[4] + (1-x)*belief[5])
+                print(belief_upd[i])
 
     if action == 2:
         for i in range(0,6):
             if i==0:
                 belief_upd[i] = (1.00-p_red)*((x)*belief[0] + (x)*(belief[1]))
+                print(belief_upd[i])
             if i==1:
                 belief_upd[i] = (p_green)*((1-x)*belief[0] + (x)*belief[2])
+                print(belief_upd[i])
             if i==2:
                 belief_upd[i] = (1.00-p_red)*((1-x)*belief[1] + (x)*belief[3])
+                print(belief_upd[i])
             if i==3:
                 belief_upd[i] = (p_green)*((1-x)*belief[2] + (x)*belief[4])
+                print(belief_upd[i])
             if i==4:
                 belief_upd[i] = (p_green)*((1-x)*belief[3] + (x)*belief[5])
+                print(belief_upd[i])
             if i==5:
                 belief_upd[i] = (1.00- p_red)*((1-x)*belief[4] + (1-x)*belief[5])
+                print(belief_upd[i])
     const = 0.0
     for j in range(0,6):
         belief[j] = belief_upd[j]
